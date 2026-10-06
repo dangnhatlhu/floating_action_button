@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>Nút hành động nổi</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: #f4f7fb;
+    }
+
+    .floating-button {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #38bdf8, #2563eb);
+      box-shadow: 0 8px 20px rgb(37 99 235 / 35%);
+      color: #fff;
+      cursor: pointer;
+      animation: pulse 2s ease-in-out infinite;
+      transition: box-shadow 180ms ease, filter 180ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .floating-button:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 10px 26px rgb(37 99 235 / 45%);
+    }
+
+    .floating-button:focus-visible {
+      outline: 3px solid #1d4ed8;
+      outline-offset: 5px;
+    }
+
+    .floating-button svg {
+      display: block;
+      width: 28px;
+      height: 28px;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 20px rgb(37 99 235 / 35%), 0 0 0 0 rgb(37 99 235 / 25%);
+      }
+
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 10px 24px rgb(37 99 235 / 40%), 0 0 0 12px rgb(37 99 235 / 0%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .floating-button {
+        animation: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .floating-button {
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="floating-button" type="button" aria-label="Mở hành động">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+</body>
+</html>
